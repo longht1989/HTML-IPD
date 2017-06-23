@@ -1,0 +1,30 @@
+/* ====================================
+   Footer's style
+   ==================================== */
+
+#site-footer {
+    margin-top: 30px;
+    background: #333;
+    padding: 20px 10px;
+    @include clearfix;
+    @include breakpoint(sm) {
+        padding-left: 0;
+        padding-right: 0;
+    }
+}
+
+.footer {
+    &__col {
+        @include breakpoint(sm) {
+            width: 50%;
+            float: left;
+            padding: 0 20px;
+        }
+    }
+    &__info {
+        p {
+            color: #ccc;
+            @include font-size(14, 22);
+        }
+    }
+}

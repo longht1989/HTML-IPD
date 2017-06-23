@@ -1,0 +1,155 @@
+/* ====================================
+   All region in project
+   ==================================== */
+
+
+/* zone global style */
+
+.zone {
+    margin-bottom: 20px;
+    &__title {
+        position: relative;
+        margin-bottom: 10px;
+        padding-top: 5px;
+        &::after {
+            display: block;
+            width: 50px;
+            height: 5px;
+            content: '';
+            background: $brand-primary;
+            position: absolute;
+            top: 0;
+            left: 0px;
+        }
+        .cate {
+            @include font-size(18, 30);
+            font-weight: bold;
+            @include breakpoint(md) {
+                @include font-size(24, 35);
+            }
+            .sidebar-col & {
+                @include font-size(16, 30);
+            }
+        }
+        .sub-cate {
+            @include font-size(14, 30);
+            margin-left: 10px;
+            @include breakpoint(md) {
+                margin-left: 30px;
+                @include font-size(16, 35);
+            }
+        }
+    }
+    &__content {
+        @include clearfix();
+    }
+    &__top-story {
+        padding-bottom: 10px;
+        margin-bottom: 15px;
+        position: relative;
+        &::before {
+            display: block;
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 10px;
+            right: 10px;
+            background: #ddd;
+            height: 1px;
+            @include breakpoint(md) {
+                width: 410px;
+            }
+        }
+    }
+    &--grey {
+        background: #f0f0f0;
+        .zone__title {
+            padding-left: 15px;
+            padding-right: 15px;
+            &::after {
+                left: 15px;
+            }
+        }
+        .zone__content {
+            padding-left: 15px;
+            padding-right: 15px;
+            padding-bottom: 10px;
+        }
+    }
+    &--special {
+        background: url(../img/findschool-bg.png) left top no-repeat;
+        background-size: cover;
+        .zone__title {
+            padding-left: 15px;
+            padding-right: 15px;
+            &::after {
+                left: 15px;
+            }
+            .cate {
+                color: white;
+                &:hover {
+                    color: $brand-primary;
+                }
+            }
+        }
+        .zone__content {
+            padding-left: 15px;
+            padding-right: 15px;
+            padding-bottom: 10px;
+            .form-wrap {
+                position: relative;
+                margin-bottom: 10px;
+            }
+            .fa-map-marker {
+                position: absolute;
+                right: 10px;
+                top: 50%;
+                transform: translateY(-50%);
+            }
+            .btn {
+                float: right;
+            }
+        }
+    }
+}
+
+
+/* box register */
+
+.box {
+    width: 300px;
+    padding: 15px;
+    margin: 0 auto 20px;
+    background: url(../img/bg-mess.png) left top no-repeat;
+    background-size: cover;
+    color: white;
+    &__title {
+        text-align: center;
+        font-weight: bold;
+        font-size: 26px;
+        margin-bottom: 15px;
+        text-shadow: 1px 1px 2px #000;
+    }
+    &__content {
+        text-align: center;
+    }
+    &__desc {
+        margin-bottom: 15px;
+    }
+    &__cta {
+        margin-top: 10px;
+        @include transition(all, 0.2, ease);
+        &:hover {
+            opacity: 0.8;
+        }
+    }
+}
+
+
+/* ads */
+
+.qc {
+    @include clearfix();
+    margin-bottom: 20px;
+    text-align: center;
+}

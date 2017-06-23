@@ -1,0 +1,168 @@
+/* style for story */
+
+.story {
+    @include clearfix;
+    margin-bottom: 10px;
+    position: relative;
+    &__thumb {
+        margin-bottom: 7px;
+        overflow: hidden;
+        position: relative;
+        img {
+            @include transition(all, 0.2, linear);
+            &::after {
+                @include transition(all, 0.4, linear);
+            }
+        }
+        a {
+            &::after {
+                @include transition(all, 0.4, linear);
+                display: block;
+                content: '';
+                position: absolute;
+                top: 0;
+                right: 0;
+                bottom: 0;
+                left: 0;
+                background: black;
+                opacity: 0;
+            }
+        }
+    }
+    &:hover {
+        .story__thumb {
+            a {
+                &::after {
+                    opacity: 0.3;
+                }
+            }
+            img {
+                transform: scale(1.1);
+            }
+        }
+    }
+    &__title {
+        @include font-size(14, 19);
+        font-weight: bold;
+    }
+    &__meta {
+        color: #999;
+        margin-top: 7px;
+        margin-bottom: 5px;
+        @include font-size(12, 16);
+    }
+    &__summary {
+        color: #555;
+        @include font-size(13, 18);
+        margin-top: 7px;
+    }
+    &--mask {
+        position: relative;
+        @include breakpoint(md) {
+            .story__thumb {
+                margin-bottom: 0;
+            }
+            .story__title {
+                line-height: 1.6em !important;
+                position: absolute;
+                bottom: 5px;
+                left: 5px;
+                right: 5px;
+                background: rgba(0, 0, 0, .7);
+                padding: 0 10px;
+                a {
+                    color: white;
+                    display: block;
+                }
+            }
+        }
+    }
+    &--highlight {
+        .story__title {
+            @include font-size(18, 24);
+            bottom: 10px;
+            left: 10px;
+            right: 10px;
+        }
+        @include breakpoint(xs) {
+            padding-bottom: 12px;
+            border-bottom: 1px solid #ddd;
+        }
+        @include breakpoint(768px, 1023px) {
+            padding-bottom: 12px;
+            border-bottom: 1px solid #ddd;
+        }
+    }
+    &--featured {
+        .story__title {
+            @include font-size(18, 24);
+        }
+        + .story {
+            padding-top: 12px;
+            border-top: 1px solid #ddd;
+        }
+    }
+    &--bullet {
+        .story__title {
+            font-weight: normal;
+            padding-left: 15px;
+            position: relative;
+            &::before {
+                display: block;
+                content: '•';
+                color: $brand-primary;
+                font-size: 20px;
+                position: absolute;
+                top: 0px;
+                left: 0;
+            }
+        }
+    }
+    &--horizontal {
+        @include last-child-y;
+        .story__thumb {
+            float: left;
+            margin: 0 10px 0 0;
+        }
+    }
+    &--circle {
+        .story__thumb {
+            border-radius: 50%;
+            overflow: hidden;
+        }
+    }
+    &--rare {
+        background: white;
+        padding: 0 10px 10px !important;
+        .story__thumb {
+            margin-left: -10px;
+            margin-right: -10px;
+        }
+    }
+    &--partner {
+        .story__thumb {
+            border-radius: 5px;
+            border: 1px solid #ddd;
+            background: #eee;
+            text-align: center;
+            padding: 20px 0px;
+            height: 100px;
+            img {
+                height: 100%;
+                width: auto;
+            }
+        }
+    }
+    .latest-listing & {
+        margin-bottom: 0;
+        & + .story {
+            margin-top: 14px;
+        }
+    }
+    .zone__secondary-story & {
+        &+.story {
+            padding-top: 10px;
+            border-top: 1px solid #ddd;
+        }
+    }
+}
