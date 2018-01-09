@@ -9,7 +9,11 @@ $(function() {
         $(".mobile__menu").slideToggle('fast');
     });
     $('.story-listing .story--rare').matchHeight();
-
+    $('.site-cover ul').bxSlider({
+        controls: 0,
+        auto: 1,
+        pause: 10000
+    });
     // var i = 0;
     // $('img').each(function() {
     //     var imgsrc = $(this).attr('src');

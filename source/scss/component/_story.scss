@@ -8,7 +8,14 @@
         margin-bottom: 7px;
         overflow: hidden;
         position: relative;
+        padding-bottom: 56.25%;
         img {
+            width: 100%;
+            height: auto;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
             @include transition(all, 0.2, linear);
             &::after {
                 @include transition(all, 0.4, linear);
@@ -35,9 +42,6 @@
                 &::after {
                     opacity: 0.3;
                 }
-            }
-            img {
-                transform: scale(1.1);
             }
         }
     }
@@ -78,6 +82,9 @@
         }
     }
     &--highlight {
+        .story__thumb {
+            padding-bottom: 60%;
+        }
         .story__title {
             @include font-size(18, 24);
             bottom: 10px;
@@ -97,7 +104,7 @@
         .story__title {
             @include font-size(18, 24);
         }
-        + .story {
+        +.story {
             padding-top: 12px;
             border-top: 1px solid #ddd;
         }
@@ -123,12 +130,27 @@
         .story__thumb {
             float: left;
             margin: 0 10px 0 0;
+            padding-bottom: 0;
+            width: 80px;
+            height: 60px;
         }
     }
     &--circle {
         .story__thumb {
             border-radius: 50%;
             overflow: hidden;
+            padding-bottom: 0;
+            width: 64px;
+            height: 64px;
+            img {
+                border-radius: 50%;
+            }
+            a {
+                &:after {
+                    border-radius: 50%;
+                    display: block;
+                }
+            }
         }
     }
     &--rare {
@@ -155,7 +177,7 @@
     }
     .latest-listing & {
         margin-bottom: 0;
-        & + .story {
+        &+.story {
             margin-top: 14px;
         }
     }
